@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한신대 채용박람회 참여자 현황판</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --navy:#004288; --navy-deep:#00265C; --navy-sub:#204E90; --pale:#E2E9F1;
+  --bg:#F3F6FA; --surface:#FFFFFF; --surface-2:#F8FAFD; --inset:#EEF2F8;
+  --ink:#0F1B2D; --ink-2:#3B4A61; --muted:#6C7B92; --line:#DCE3EE; --line-2:#C8D3E3;
+  --accent:#004288; --accent-soft:#E2E9F1;
+  --good:#12805C; --warn:#A96A12; --crit:#B23A2F;
+  --s1:#00265C; --s2:#004288; --s3:#3D74B8; --s4:#93B6DD; --s5:#D6E2F0;
+  --shadow:0 1px 2px rgba(15,27,45,.06), 0 8px 24px -16px rgba(15,27,45,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1422; --surface:#111F30; --surface-2:#0E1B2A; --inset:#16273B;
+    --ink:#E9EFF8; --ink-2:#B6C4D7; --muted:#8397B1; --line:#20334A; --line-2:#2B4160;
+    --accent:#6BA5EC; --accent-soft:#172C45;
+    --good:#4BC195; --warn:#E0A552; --crit:#E8796B;
+    --s1:#0B3C7E; --s2:#1B5EAE; --s3:#4C87CD; --s4:#84AEDC; --s5:#B7CBE3;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1422; --surface:#111F30; --surface-2:#0E1B2A; --inset:#16273B;
+  --ink:#E9EFF8; --ink-2:#B6C4D7; --muted:#8397B1; --line:#20334A; --line-2:#2B4160;
+  --accent:#6BA5EC; --accent-soft:#172C45;
+  --good:#4BC195; --warn:#E0A552; --crit:#E8796B;
+  --s1:#0B3C7E; --s2:#1B5EAE; --s3:#4C87CD; --s4:#84AEDC; --s5:#B7CBE3;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  font-size:14px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Gothic A1","Noto Sans KR",sans-serif; margin:0; text-wrap:balance}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+button{font:inherit; color:inherit; cursor:pointer}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+/* ── 상단 브랜드 바 ───────────────────────────── */
+.topbar{
+  background:var(--navy); color:#fff;
+  background-image:linear-gradient(105deg, var(--navy) 0%, var(--navy) 62%, var(--navy-sub) 62.2%, var(--navy-sub) 100%);
+}
+.topbar-in{
+  max-width:1360px; margin:0 auto; padding:18px 20px;
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+}
+.lockup{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.mark{
+  font-family:"Gothic A1",sans-serif; font-weight:900; font-size:30px; letter-spacing:-.04em;
+  line-height:1; color:#fff;
+}
+.mark .o{
+  display:inline-block; width:.62em; height:.62em; border:.17em solid #fff; border-radius:50%;
+  margin-left:.08em; transform:translateY(-.02em);
+}
+.eyebrow{
+  font-size:11.5px; font-weight:700; letter-spacing:.14em; color:#BFD2EA;
+  text-transform:none;
+}
+.lockup h1{font-size:15px; font-weight:700; color:#fff; letter-spacing:-.01em}
+.topbar .spacer{flex:1 1 40px}
+.live{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  font-size:12px; color:#CFDDEE;
+}
+.dot{width:8px; height:8px; border-radius:50%; background:#7FD4A8; box-shadow:0 0 0 0 rgba(127,212,168,.7); flex:none}
+.dot.live{animation:pulse 2.4s ease-out infinite}
+.dot.wait{background:#E3B25A; animation:none}
+.dot.off{background:#E08476; animation:none}
+@keyframes pulse{to{box-shadow:0 0 0 9px rgba(127,212,168,0)}}
+@media (prefers-reduced-motion:reduce){.dot.live{animation:none}}
+.btn{
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); color:#fff;
+  padding:6px 13px; border-radius:999px; font-size:12px; font-weight:700;
+  transition:background .15s;
+}
+.btn:hover{background:rgba(255,255,255,.24)}
+
+/* ── 본문 레이아웃 ───────────────────────────── */
+.wrap{max-width:1360px; margin:0 auto; padding:0 20px; padding-block:20px 56px}
+
+.toolbar{
+  display:flex; align-items:center; gap:10px 18px; flex-wrap:wrap;
+  padding:12px 4px 16px;
+}
+.fieldset{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.fieldset > .lbl{
+  font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--muted);
+}
+.chip{
+  background:var(--surface); border:1px solid var(--line); color:var(--ink-2);
+  padding:5px 13px; border-radius:999px; font-size:12.5px; font-weight:500;
+  transition:border-color .15s, color .15s;
+}
+.chip:hover{border-color:var(--line-2)}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--surface); font-weight:700}
+input[type="search"], input[type="time"], textarea{
+  background:var(--surface); border:1px solid var(--line); color:var(--ink);
+  border-radius:8px; padding:6px 11px; font:inherit; font-size:13px;
+}
+input[type="search"]{min-width:190px}
+input[type="time"]{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+.tilde{color:var(--muted); font-size:12px}
+
+/* ── KPI 스트립 ───────────────────────────── */
+.kpis{
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  box-shadow:var(--shadow);
+  display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden;
+}
+.kpi{padding:16px 18px 15px; border-left:1px solid var(--line)}
+.kpi:first-child{border-left:0}
+.kpi .k-lab{font-size:11.5px; font-weight:700; color:var(--muted); letter-spacing:.02em}
+.kpi .k-val{
+  font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:30px; font-weight:600; line-height:1.15; letter-spacing:-.02em; margin-top:3px;
+}
+.kpi .k-val .unit{font-size:14px; font-weight:500; color:var(--muted); margin-left:2px}
+.kpi .k-sub{font-size:11.5px; color:var(--muted); margin-top:2px}
+.kpi.lead .k-val{color:var(--accent)}
+@media (max-width:720px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi{border-left:1px solid var(--line)}
+  .kpi:nth-child(2n+1){border-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* ── 섹션 ───────────────────────────── */
+.band{margin-top:34px}
+.band-head{display:flex; align-items:baseline; gap:12px; margin-bottom:14px; flex-wrap:wrap}
+.band-head h2{font-size:17px; font-weight:800; letter-spacing:-.02em}
+.band-head .rule{flex:1; height:1px; background:var(--line); min-width:20px}
+.band-head .note{font-size:12px; color:var(--muted)}
+
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
+.panel{
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:16px 18px 18px; box-shadow:var(--shadow);
+  display:flex; flex-direction:column; gap:12px; min-width:0;
+}
+.panel > h3{font-size:13px; font-weight:700; color:var(--ink-2); letter-spacing:.01em}
+.panel .cap{font-size:11.5px; color:var(--muted); margin-top:-8px}
+
+/* 가로 막대 분포 */
+.bars{display:flex; flex-direction:column; gap:9px}
+.bar-row{display:grid; grid-template-columns:minmax(74px,auto) 1fr auto; gap:10px; align-items:center}
+.bar-row .b-lab{font-size:12.5px; color:var(--ink-2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.bar-track{background:var(--inset); border-radius:4px; height:9px; overflow:hidden}
+.bar-fill{height:100%; background:var(--s2); border-radius:4px}
+.bar-row .b-val{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:12px; color:var(--muted)}
+
+/* 시간대 추이 */
+.chart{width:100%; max-width:100%; height:auto; display:block}
+.chart text{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:11px}
+.chart .gridline{stroke:var(--line); stroke-width:1}
+.chart .col{fill:var(--s3)}
+.chart .col.peak{fill:var(--s2)}
+.chart .vlab{fill:var(--ink-2); font-size:11px; font-weight:600}
+
+/* 구간별 인원 표 */
+.slot-wrap{max-height:340px; overflow:auto; border:1px solid var(--line); border-radius:10px}
+table.slots{min-width:0}
+table.slots th, table.slots td{padding:7px 14px}
+table.slots td{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+table.slots td:first-child{color:var(--ink-2)}
+table.slots tr.idle td{color:var(--muted)}
+table.slots tr.peak td{background:var(--accent-soft)}
+table.slots td.cum{color:var(--muted)}
+
+/* 명단 */
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--surface); box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; min-width:760px; font-size:12.5px}
+thead th{
+  position:sticky; top:0; background:var(--surface-2); z-index:1;
+  text-align:left; font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.04em;
+  padding:10px 14px; border-bottom:1px solid var(--line); white-space:nowrap;
+}
+tbody td{padding:9px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+td.mono{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--ink-2); white-space:nowrap}
+.tag{
+  display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; font-weight:700;
+  background:var(--accent-soft); color:var(--accent); white-space:nowrap;
+}
+.tag.alt{background:var(--inset); color:var(--ink-2)}
+.tag.bad{background:color-mix(in srgb, var(--crit) 14%, transparent); color:var(--crit)}
+.scroll-body{max-height:440px; overflow-y:auto}
+
+.empty{padding:34px 20px; text-align:center; color:var(--muted); font-size:13px}
+.status-note{
+  margin-top:14px; padding:13px 16px; border-radius:11px; font-size:12.5px;
+  background:var(--surface); border:1px solid var(--line); color:var(--ink-2);
+}
+.status-note b{color:var(--ink)}
+details.paste{margin-top:22px; font-size:12.5px; color:var(--ink-2)}
+details.paste summary{cursor:pointer; color:var(--muted); font-size:12px}
+details.paste .pastebox{display:grid; gap:10px; grid-template-columns:1fr 1fr; margin-top:10px}
+details.paste textarea{width:100%; min-height:86px; font-family:"IBM Plex Mono",monospace; font-size:11px}
+details.paste .apply{
+  background:var(--accent); color:#fff; border:0; border-radius:8px; padding:7px 16px;
+  font-size:12.5px; font-weight:700; margin-top:9px;
+}
+@media (max-width:640px){details.paste .pastebox{grid-template-columns:1fr}}
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--muted)}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="lockup">
+      <span class="mark">한신<span class="o"></span></span>
+      <div>
+        <div class="eyebrow">한신대학교 · 2026 채용박람회</div>
+        <h1>참여자 현황판</h1>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="live">
+      <span class="dot wait" id="statusDot"></span>
+      <span id="statusText">구글 시트 연결 중…</span>
+      <button class="btn" id="refreshBtn" type="button">새로고침</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="toolbar">
+    <div class="fieldset">
+      <span class="lbl">시간</span>
+      <button class="chip" type="button" data-win="all" aria-pressed="true">전체</button>
+      <button class="chip" type="button" data-win="event" aria-pressed="false">행사 시간 10:00–16:30</button>
+      <input type="time" id="fromTime" value="10:00" step="900" aria-label="시작 시각">
+      <span class="tilde">~</span>
+      <input type="time" id="toTime" value="16:30" step="900" aria-label="종료 시각">
+    </div>
+    <div class="fieldset">
+      <span class="lbl">소속</span>
+      <button class="chip" type="button" data-aff="all" aria-pressed="true">전체</button>
+      <button class="chip" type="button" data-aff="한신대학교" aria-pressed="false">한신대학교</button>
+      <button class="chip" type="button" data-aff="지역청년" aria-pressed="false">지역청년</button>
+    </div>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+  <div class="status-note" id="statusNote" hidden></div>
+
+  <section class="band">
+    <div class="band-head">
+      <h2>현장 체크인 현황</h2>
+      <span class="note">등록 폼 접수 시각 기준</span>
+      <span class="rule"></span>
+    </div>
+    <div class="grid two">
+      <div class="panel" style="grid-column:1/-1">
+        <h3>시간대별 입장 추이</h3>
+        <div id="trend"></div>
+      </div>
+      <div class="panel"><h3>소속 · 성별</h3><div class="bars" id="distAff"></div></div>
+      <div class="panel"><h3>학년 / 학적 상태</h3><div class="bars" id="distGrade"></div></div>
+      <div class="panel"><h3>학과 상위 8</h3><div class="bars" id="distDept"></div></div>
+      <div class="panel"><h3>학교 상위 8</h3><div class="bars" id="distSchool"></div></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <h2>만족도 조사 응답 인원</h2>
+      <span class="note" id="satNote"></span>
+      <span class="rule"></span>
+    </div>
+    <div class="grid two">
+      <div class="panel" style="grid-column:1/-1">
+        <h3>15분 간격 응답 추이</h3>
+        <div id="satTrend"></div>
+      </div>
+      <div class="panel" style="grid-column:1/-1">
+        <h3>구간별 인원</h3>
+        <p class="cap">15분 단위 등록·응답 인원과 누적</p>
+        <div class="slot-wrap">
+          <table class="slots">
+            <thead><tr>
+              <th>시간대</th><th>등록</th><th>누적 등록</th><th>만족도 응답</th><th>누적 응답</th>
+            </tr></thead>
+            <tbody id="slotBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <h2>만족도 문항별 결과</h2>
+      <span class="note" id="satScoreNote"></span>
+      <span class="rule"></span>
+    </div>
+    <div class="kpis" id="satKpis"></div>
+    <div class="grid two" style="margin-top:14px">
+      <div class="panel"><h3>전반적 만족도 분포</h3><div class="bars" id="distQ1"></div></div>
+      <div class="panel"><h3>주제·내용 적합성 분포</h3><div class="bars" id="distQ2"></div></div>
+      <div class="panel"><h3>강사 만족도 분포</h3><div class="bars" id="distQ3"></div></div>
+      <div class="panel"><h3>지인 추천 의향 분포</h3><div class="bars" id="distQ4"></div></div>
+      <div class="panel" style="grid-column:1/-1">
+        <h3>가장 좋았던 부스</h3>
+        <p class="cap">복수 선택 · 선택 횟수 기준</p>
+        <div class="bars" id="distBooth"></div>
+      </div>
+      <div class="panel"><h3>응답자 학부·전공 상위 8</h3><div class="bars" id="distSatDept"></div></div>
+      <div class="panel"><h3>응답자 학년</h3><div class="bars" id="distSatGrade"></div></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <h2>참여 소감 · 주관식 응답</h2>
+      <span class="note" id="freeNote"></span>
+      <span class="rule"></span>
+    </div>
+    <div class="panel"><div id="freeList"></div></div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <h2>참여자 명단</h2>
+      <span class="rule"></span>
+      <input type="search" id="search" placeholder="이름 · 학번 · 연락처 · 학과 검색" aria-label="참여자 검색">
+    </div>
+    <div class="table-wrap">
+      <div class="scroll-body">
+        <table>
+          <thead><tr>
+            <th>접수 시각</th><th>소속</th><th>이름</th><th>성별</th><th>학번</th>
+            <th>학교</th><th>학과</th><th>학년/학적</th><th>연락처</th>
+          </tr></thead>
+          <tbody id="roster"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <details class="paste">
+    <summary>연동이 안 될 때 — 시트 내용 직접 붙여넣기</summary>
+    <p>구글 시트에서 <b>표 전체를 복사</b>해 아래 칸에 붙여넣으면 그 데이터로 화면을 채웁니다. 첫 줄은 머리글이어야 합니다.</p>
+    <div class="pastebox">
+      <label>등록/입장 시트<textarea id="pasteReg" placeholder="타임스탬프&#9;귀하의 소속을…"></textarea></label>
+      <label>만족도 시트<textarea id="pasteSat" placeholder="타임스탬프&#9;1. 이름을 작성해주세요…"></textarea></label>
+    </div>
+    <button class="apply" id="applyPaste" type="button">붙여넣은 데이터 적용</button>
+  </details>
+
+  <footer>
+    주최 한신대학교 대학일자리플러스센터 &nbsp;|&nbsp; 주관 (주)엘리트코리아
+  </footer>
+</div>
+
+<script>
+"use strict";
+
+/* ─────────── 데이터 소스 ─────────── */
+const SHEETS = {
+  reg: "1wUvGjwOobw3OF-ib1RXgDTGvTRCH2J1plnkKc92lNRE",   // 현장등록
+  sat: "1Vo1gSogcpAFW1RQLvxu1BH25apatLaU8uTNEyAcK-Ok"    // 만족도 조사
+};
+const SERVER = "Google Drive";
+const TOOL = "read_file_content";
+const POLL_MS = 60000;
+
+const EVENT_WINDOW = {from: 10*60, to: 16*60 + 30};        // 10:00 ~ 16:30
+const BUCKET_MIN = 15;                                      // 추이 집계 단위
+
+const state = {
+  reg: [], sat: [],
+  win: "all", from: EVENT_WINDOW.from, to: EVENT_WINDOW.to, aff: "all", q: "",
+  stamp: {reg:null, sat:null},
+  err: {reg:null, sat:null},
+  mode: "연결 중"
+};
+
+/* ─────────── 파서 ─────────── */
+// read_file_content는 시트를 마크다운 표 문자열로 돌려준다.
+// 붙여넣기 경로에서는 탭/쉼표 구분 텍스트도 같은 함수로 받는다.
+function toRows(text){
+  if(!text || typeof text !== "string") return [];
+  const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  const out = [];
+  const pipe = lines.filter(l=>l.startsWith("|")).length > lines.length/2;
+  for(const line of lines){
+    if(pipe){
+      if(!line.startsWith("|")) continue;
+      if(/^\|[\s:|-]+\|$/.test(line)) continue;           // 정렬 구분선
+      const cells = line.slice(1, line.endsWith("|") ? -1 : undefined)
+        .split("|").map(c=>c.replace(/\\(.)/g,"$1").trim());
+      if(cells.some(c=>c)) out.push(cells);
+    }else{
+      const sep = line.includes("\t") ? "\t" : ",";
+      out.push(splitDelim(line, sep));
+    }
+  }
+  return out;
+}
+function splitDelim(line, sep){
+  const out=[]; let cur="", quoted=false;
+  for(let i=0;i<line.length;i++){
+    const ch=line[i];
+    if(ch === '"'){ if(quoted && line[i+1]==='"'){cur+='"'; i++;} else quoted=!quoted; }
+    else if(ch === sep && !quoted){ out.push(cur.trim()); cur=""; }
+    else cur+=ch;
+  }
+  out.push(cur.trim());
+  return out;
+}
+
+// "2026. 9. 16 오전 10:37:36" 또는 gviz가 주는 "Date(2026,8,16,10,37,36)"
+function parseTs(s){
+  const g = /^Date\((\d+),(\d+),(\d+)(?:,(\d+),(\d+)(?:,(\d+))?)?\)$/.exec((s||"").trim());
+  if(g) return new Date(+g[1], +g[2], +g[3], +(g[4]||0), +(g[5]||0), +(g[6]||0));
+  const m = /(\d{4})\D+(\d{1,2})\D+(\d{1,2})\D+(오전|오후)?\s*(\d{1,2}):(\d{2})(?::(\d{2}))?/.exec(s||"");
+  if(!m) return null;
+  let h = +m[5];
+  if(m[4] === "오후" && h < 12) h += 12;
+  if(m[4] === "오전" && h === 12) h = 0;
+  return new Date(+m[1], +m[2]-1, +m[3], h, +m[6], +(m[7]||0));
+}
+
+// 머리글 라벨이 중복되는 구조(한신대 섹션 / 지역청년 섹션)라 등장 순서로 구분한다.
+function colFinder(header){
+  return (needle, nth=0) => {
+    let seen = -1;
+    for(let i=0;i<header.length;i++){
+      if(header[i] && header[i].replace(/\s+/g,"").includes(needle.replace(/\s+/g,""))){
+        seen++;
+        if(seen === nth) return i;
+      }
+    }
+    return -1;
+  };
+}
+const at = (row,i) => (i >= 0 && row[i] != null ? String(row[i]).trim() : "");
+
+function parseReg(input){
+  const rows = Array.isArray(input) ? input : toRows(input);
+  if(rows.length < 2) return [];
+  const head = rows[0], find = colFinder(head);
+  const C = {
+    ts: find("타임스탬프"), aff: find("소속"),
+    name:[find("이름",0), find("이름",1)],
+    sex:[find("성별",0), find("성별",1)],
+    tel:[find("핸드폰",0), find("핸드폰",1)],
+    sid: find("학번"), school: find("학교명"),
+    dept:[find("학과",0), find("학과",1)],
+    grade:[find("학년",0), find("학년",1)]
+  };
+  const out = [];
+  for(const r of rows.slice(1)){
+    const ts = parseTs(at(r,C.ts));
+    if(!ts) continue;
+    const hsu = !at(r,C.aff).includes("지역");
+    const k = hsu ? 0 : 1;
+    const sid = at(r,C.sid);
+    out.push({
+      ts, aff: hsu ? "한신대학교" : "지역청년",
+      name: at(r,C.name[k]) || at(r,C.name[k?0:1]),
+      sex: at(r,C.sex[k]),
+      tel: at(r,C.tel[k]),
+      sid: hsu ? sid : "",
+      school: hsu ? "한신대학교" : (at(r,C.school) || "―"),
+      dept: at(r,C.dept[k]) || "―",
+      grade: at(r,C.grade[k]) || at(r,C.grade[k?0:1]) || "―",
+      // 학부 9자리 / 대학원 10자리 규칙 위반 → 확인 필요 표시
+      sidBad: hsu && !!sid && !/^\d{9}$|^\d{10}$/.test(sid)
+    });
+  }
+  return out.sort((a,b)=>b.ts-a.ts);
+}
+
+/* 만족도 시트: 인원 + 문항별 점수 + 부스 선택 + 자유응답.
+   척도 보기는 '매우만족 ~ 매우불만족' 5단계. */
+const SAT_Q = [
+  {key:"q1", find:"전반적인만족도는",   label:"전반적 만족도"},
+  {key:"q2", find:"주제와내용은",       label:"주제·내용 적합성"},
+  {key:"q3", find:"강사에대한",         label:"강사 만족도"},
+  {key:"q4", find:"추천의향",           label:"지인 추천 의향"}
+];
+const SCALE = [
+  {label:"매우만족", score:5}, {label:"만족", score:4}, {label:"보통", score:3},
+  {label:"불만족", score:2},  {label:"매우불만족", score:1}
+];
+function scoreOf(v){
+  const t = String(v||"").replace(/\s+/g,"");
+  if(!t) return null;
+  if(/^[1-5]$/.test(t)) return +t;
+  // '매우불만족'이 '불만족'을 포함하므로 긴 보기부터 맞춘다.
+  for(const s of [...SCALE].sort((a,b)=>b.label.length-a.label.length)){
+    if(t.includes(s.label)) return s.score;
+  }
+  return null;
+}
+/* 구글 폼 복수선택은 ', '로 이어 붙는데 부스 이름 자체에도 쉼표가 있다.
+   보기는 모두 '기업명_직무' 꼴이라, '_' 없는 조각은 앞 항목에 되붙인다. */
+function splitBooths(v){
+  const parts = String(v||"").split(/,\s*/).filter(Boolean);
+  const out = [];
+  for(const p of parts){
+    if(p.includes("_") || !out.length) out.push(p);
+    else out[out.length-1] += ", " + p;
+  }
+  return out.map(x=>x.trim()).filter(Boolean);
+}
+function parseSat(input){
+  const rows = Array.isArray(input) ? input : toRows(input);
+  if(rows.length < 2) return [];
+  const head = rows[0], find = colFinder(head);
+  const C = {
+    ts: find("타임스탬프"), name: find("이름"), sid: find("학번"),
+    dept: find("학부"), grade: find("학년"), sex: find("성별"),
+    booth: find("가장좋았던부스"), why: find("그이유는"), free: find("참여소감")
+  };
+  SAT_Q.forEach(q => { C[q.key] = find(q.find); });
+  const out = [];
+  for(const r of rows.slice(1)){
+    const ts = parseTs(at(r,C.ts));
+    if(!ts) continue;
+    const rec = {
+      ts, name: at(r,C.name), sid: at(r,C.sid), dept: at(r,C.dept) || "―",
+      grade: at(r,C.grade) || "―", sex: at(r,C.sex) || "―",
+      booths: splitBooths(at(r,C.booth)),
+      why: at(r,C.why), free: at(r,C.free)
+    };
+    SAT_Q.forEach(q => {
+      rec[q.key] = at(r,C[q.key]);
+      rec[q.key+"_s"] = scoreOf(rec[q.key]);
+    });
+    out.push(rec);
+  }
+  return out.sort((a,b)=>b.ts-a.ts);
+}
+
+/* ─────────── 집계 헬퍼 ─────────── */
+const minOfDay = d => d.getHours()*60 + d.getMinutes();
+const toMin = hhmmStr => {
+  const m = /^(\d{1,2}):(\d{2})/.exec(hhmmStr || "");
+  return m ? +m[1]*60 + +m[2] : null;
+};
+const minLabel = m => String(Math.floor(m/60) % 24).padStart(2,"0")+":"+String(m%60).padStart(2,"0");
+function inRange(ts){
+  if(state.win === "all") return true;
+  const m = minOfDay(ts);
+  return m >= state.from && m <= state.to;
+}
+function filteredReg(){
+  return state.reg.filter(r => inRange(r.ts) && (state.aff === "all" || r.aff === state.aff));
+}
+function filteredSat(){
+  return state.sat.filter(r => inRange(r.ts));
+}
+function tally(items, key){
+  const m = new Map();
+  for(const it of items){
+    const v = (typeof key === "function" ? key(it) : it[key]) || "―";
+    m.set(v, (m.get(v)||0)+1);
+  }
+  return [...m.entries()].sort((a,b)=>b[1]-a[1]);
+}
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hhmm = d => String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+const mdhm = d => (d.getMonth()+1)+"/"+d.getDate()+" "+hhmm(d);
+
+/* ─────────── 렌더 ─────────── */
+function render(){
+  const reg = filteredReg(), sat = filteredSat();
+  const keys = slotKeys(reg.concat(sat));
+  renderKpis(reg, sat);
+  renderTrend("trend", reg, keys, "등록");
+  renderBars("distAff", tally(reg, r => r.aff + " · " + (r.sex || "미기재")), reg.length);
+  renderBars("distGrade", tally(reg, "grade"), reg.length);
+  renderBars("distDept", tally(reg, "dept").slice(0,8), reg.length);
+  renderBars("distSchool", tally(reg, "school").slice(0,8), reg.length);
+  renderTrend("satTrend", sat, keys, "만족도 응답");
+  renderSlots(keys, reg, sat);
+  renderRoster(reg);
+  renderSatDetail(sat);
+  document.getElementById("satNote").textContent =
+    sat.length ? sat.length + "명 응답" : "응답 없음";
+  renderStatus();
+}
+
+function renderKpis(reg, sat){
+  const hsu = reg.filter(r=>r.aff==="한신대학교").length;
+  const loc = reg.length - hsu;
+  const rate = reg.length ? Math.round(sat.length / reg.length * 100) : 0;
+  const last = reg[0] ? mdhm(reg[0].ts) : "―";
+  const tiles = [
+    ["누적 등록", reg.length, "명", "lead", last === "―" ? "" : "최근 접수 " + last],
+    ["한신대학교", hsu, "명", "", reg.length ? Math.round(hsu/reg.length*100)+"%" : ""],
+    ["지역청년", loc, "명", "", reg.length ? Math.round(loc/reg.length*100)+"%" : ""],
+    ["만족도 응답", sat.length, "명", "lead", "회수율 " + rate + "%"]
+  ];
+  document.getElementById("kpis").innerHTML = tiles.map(t=>`
+    <div class="kpi ${t[3]}">
+      <div class="k-lab">${esc(t[0])}</div>
+      <div class="k-val num">${esc(t[1])}<span class="unit">${esc(t[2])}</span></div>
+      <div class="k-sub">${esc(t[4])}</div>
+    </div>`).join("");
+}
+
+// 15분 구간 공통 축 — 등록 추이와 응답 추이가 같은 눈금을 쓴다.
+const bucketOf = ts => Math.floor(minOfDay(ts) / BUCKET_MIN) * BUCKET_MIN;
+function countBySlot(items){
+  const m = new Map();
+  for(const it of items){ const s = bucketOf(it.ts); m.set(s, (m.get(s)||0)+1); }
+  return m;
+}
+function slotKeys(items){
+  let start, end;
+  if(state.win === "all"){
+    if(!items.length) return [];
+    const all = items.map(i=>bucketOf(i.ts));
+    start = Math.min(...all); end = Math.max(...all);
+  }else{
+    start = Math.floor(state.from / BUCKET_MIN) * BUCKET_MIN;
+    end   = Math.floor(state.to   / BUCKET_MIN) * BUCKET_MIN;
+  }
+  const keys = [];
+  for(let m = start; m <= end; m += BUCKET_MIN) keys.push(m);
+  return keys;
+}
+
+function renderTrend(hostId, items, keys, name){
+  const host = document.getElementById(hostId);
+  if(!items.length || !keys.length){
+    host.innerHTML = `<div class="empty">표시할 ${esc(name)} 기록이 없습니다.</div>`;
+    return;
+  }
+  const buckets = countBySlot(items);
+  const max = Math.max(...keys.map(k => buckets.get(k) || 0), 1);
+  const W = 1000, H = 160, top = 18, base = H - 22;   // 위: 값 라벨, 아래: 시각 라벨
+  const bw = W / keys.length;
+  const every = Math.ceil(keys.length / 14);
+  const bars = keys.map((k,i)=>{
+    const v = buckets.get(k) || 0;
+    const x = i*bw;
+    const tick = i % every === 0
+      ? `<text x="${(x+bw/2).toFixed(1)}" y="${base+15}" text-anchor="middle">${minLabel(k)}</text>` : "";
+    if(!v) return tick;
+    const h = Math.max((v/max) * (base - top), 2), y = base - h;
+    const showVal = v === max || keys.length <= 20;
+    return `<rect class="col${v===max?" peak":""}" x="${(x+bw*0.16).toFixed(1)}" y="${y.toFixed(1)}"
+      width="${(bw*0.68).toFixed(1)}" height="${h.toFixed(1)}" rx="2"></rect>
+      ${showVal ? `<text class="vlab" x="${(x+bw/2).toFixed(1)}" y="${(y-5).toFixed(1)}" text-anchor="middle">${v}</text>`:""}
+      ${tick}`;
+  }).join("");
+  host.innerHTML = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="15분 간격 ${esc(name)} 인원, 최대 ${max}명">
+      <line class="gridline" x1="0" y1="${base}" x2="${W}" y2="${base}"></line>
+      ${bars}
+    </svg>
+    <div class="cap">${BUCKET_MIN}분 단위 · ${minLabel(keys[0])}–${minLabel(keys[keys.length-1] + BUCKET_MIN)} · 최다 ${max}명 · 총 ${items.length}명</div>`;
+}
+
+function renderSlots(keys, reg, sat){
+  const body = document.getElementById("slotBody");
+  if(!keys.length){
+    body.innerHTML = '<tr><td colspan="5"><div class="empty">표시할 구간이 없습니다.</div></td></tr>';
+    return;
+  }
+  const rb = countBySlot(reg), sb = countBySlot(sat);
+  const peak = Math.max(...keys.map(k => rb.get(k) || 0), 1);
+  let cr = 0, cs = 0;
+  body.innerHTML = keys.map(k=>{
+    const r = rb.get(k) || 0, s = sb.get(k) || 0;
+    cr += r; cs += s;
+    const cls = r === peak && r > 0 ? "peak" : (!r && !s ? "idle" : "");
+    return `<tr class="${cls}">
+      <td>${minLabel(k)}–${minLabel(k + BUCKET_MIN)}</td>
+      <td>${r || "·"}</td><td class="cum">${cr}</td>
+      <td>${s || "·"}</td><td class="cum">${cs}</td>
+    </tr>`;
+  }).join("");
+}
+
+function renderBars(id, pairs, total){
+  const host = document.getElementById(id);
+  if(!pairs.length){ host.innerHTML = '<div class="empty">데이터 없음</div>'; return; }
+  const max = Math.max(...pairs.map(p=>p[1]));
+  host.innerHTML = pairs.map(([lab,n])=>`
+    <div class="bar-row">
+      <span class="b-lab" title="${esc(lab)}">${esc(lab)}</span>
+      <span class="bar-track"><span class="bar-fill" style="width:${(n/max*100).toFixed(1)}%"></span></span>
+      <span class="b-val">${n}<span style="color:var(--line-2)"> · </span>${total?Math.round(n/total*100):0}%</span>
+    </div>`).join("");
+}
+
+function renderRoster(reg){
+  const q = state.q.trim().toLowerCase();
+  const rows = q ? reg.filter(r =>
+    [r.name,r.sid,r.tel,r.dept,r.school].join(" ").toLowerCase().includes(q)) : reg;
+  const body = document.getElementById("roster");
+  if(!rows.length){
+    body.innerHTML = `<tr><td colspan="9"><div class="empty">${
+      state.reg.length ? "조건에 맞는 참여자가 없습니다." : "등록 데이터를 불러오는 중입니다."}</div></td></tr>`;
+    return;
+  }
+  body.innerHTML = rows.map(r=>`
+    <tr>
+      <td class="mono">${esc(mdhm(r.ts))}</td>
+      <td><span class="tag${r.aff==="지역청년"?" alt":""}">${esc(r.aff)}</span></td>
+      <td>${esc(r.name||"―")}</td>
+      <td>${esc(r.sex||"―")}</td>
+      <td class="mono">${r.sid ? esc(r.sid) : "―"}${r.sidBad?' <span class="tag bad">확인</span>':""}</td>
+      <td>${esc(r.school)}</td>
+      <td>${esc(r.dept)}</td>
+      <td>${esc(r.grade)}</td>
+      <td class="mono">${esc(r.tel||"―")}</td>
+    </tr>`).join("");
+}
+
+function renderSatDetail(sat){
+  // 문항별 평균 — 척도로 읽히는 응답만 계산에 넣는다.
+  const tiles = SAT_Q.map(q=>{
+    const vals = sat.map(r=>r[q.key+"_s"]).filter(v=>v!=null);
+    const avg = vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length) : null;
+    const good = vals.filter(v=>v>=4).length;
+    return [q.label, avg==null ? "―" : avg.toFixed(2), avg==null ? "" : "/5",
+            vals.length ? "긍정 " + Math.round(good/vals.length*100) + "% · " + vals.length + "명" : "응답 없음"];
+  });
+  document.getElementById("satKpis").innerHTML = tiles.map(t=>`
+    <div class="kpi">
+      <div class="k-lab">${esc(t[0])}</div>
+      <div class="k-val num">${esc(t[1])}<span class="unit">${esc(t[2])}</span></div>
+      <div class="k-sub">${esc(t[3])}</div>
+    </div>`).join("");
+
+  const allVals = sat.flatMap(r=>SAT_Q.map(q=>r[q.key+"_s"]).filter(v=>v!=null));
+  document.getElementById("satScoreNote").textContent = allVals.length
+    ? "4개 문항 종합 평균 " + (allVals.reduce((a,b)=>a+b,0)/allVals.length).toFixed(2) + "점 / 5점"
+    : "척도 응답 없음";
+
+  // 분포는 보기 순서(매우만족→매우불만족)를 지켜서 보여준다.
+  SAT_Q.forEach((q,i)=>{
+    const counts = new Map();
+    sat.forEach(r=>{ const v=(r[q.key]||"").trim(); if(v) counts.set(v,(counts.get(v)||0)+1); });
+    const ordered = SCALE.map(s=>[s.label, counts.get(s.label)||0]).filter(p=>p[1]>0);
+    const extra = [...counts.entries()].filter(([k])=>!SCALE.some(s=>s.label===k));
+    const total = sat.filter(r=>(r[q.key]||"").trim()).length;
+    renderBars("distQ"+(i+1), ordered.concat(extra), total);
+  });
+
+  const boothCounts = new Map();
+  sat.forEach(r=>r.booths.forEach(b=>boothCounts.set(b,(boothCounts.get(b)||0)+1)));
+  const booths = [...boothCounts.entries()].sort((a,b)=>b[1]-a[1]);
+  renderBars("distBooth", booths, sat.length);
+  renderBars("distSatDept", tally(sat,"dept").slice(0,8), sat.length);
+  renderBars("distSatGrade", tally(sat,"grade"), sat.length);
+
+  // 주관식: 부스 선택 이유와 참여 소감을 한 줄씩
+  const notes = [];
+  sat.forEach(r=>{
+    if(r.why)  notes.push({ts:r.ts, kind:"부스 선택 이유", who:r.dept, text:r.why});
+    if(r.free) notes.push({ts:r.ts, kind:"참여 소감",      who:r.dept, text:r.free});
+  });
+  const host = document.getElementById("freeList");
+  document.getElementById("freeNote").textContent = notes.length ? notes.length + "건" : "응답 없음";
+  host.innerHTML = notes.length ? notes.map(n=>`
+    <div class="bar-row" style="align-items:flex-start;gap:12px">
+      <span class="b-lab" style="width:150px;flex:none">
+        <span class="tag${n.kind==="참여 소감"?" alt":""}">${esc(n.kind)}</span>
+        <span class="mono" style="font-size:11px"> ${esc(hhmm(n.ts))}</span>
+      </span>
+      <span style="flex:1;white-space:pre-wrap;line-height:1.65">${esc(n.text)}
+        <span style="color:var(--line-2)"> — ${esc(n.who)}</span></span>
+    </div>`).join("") : '<div class="empty">주관식 응답이 아직 없습니다.</div>';
+}
+
+function renderStatus(){
+  const dot = document.getElementById("statusDot");
+  const txt = document.getElementById("statusText");
+  const note = document.getElementById("statusNote");
+  const stamps = [state.stamp.reg, state.stamp.sat].filter(Boolean);
+  const newest = stamps.length ? new Date(Math.max(...stamps)) : null;
+  dot.className = "dot " + (state.mode === "실시간" ? "live" : state.mode === "오류" ? "off" : "wait");
+  txt.textContent = state.mode === "실시간"
+    ? "실시간 연동 · " + (newest ? hhmm(newest) + " 갱신" : "수신 대기")
+    : state.mode === "붙여넣기" ? "붙여넣은 데이터 표시 중"
+    : state.mode === "오류" ? "연동 실패"
+    : "구글 시트 연결 중…";
+  const errs = [state.err.reg, state.err.sat].filter(Boolean);
+  if(errs.length){
+    note.hidden = false;
+    note.innerHTML = "<b>구글 시트를 읽지 못했습니다.</b> " + esc(errs[0]) +
+      (mcpRef ? " · claude.ai에서 <b>Google Drive 커넥터</b> 연결과 시트 접근 권한을 확인하세요." : "") +
+      " 아래 <b>시트 내용 직접 붙여넣기</b>로도 화면을 채울 수 있습니다.";
+  }else if(state.mode === "연결 중" && !state.reg.length){
+    note.hidden = false;
+    note.innerHTML = "<b>구글 시트에서 데이터를 받아오는 중입니다.</b> 커넥터 사용 동의를 물어보면 허용해 주세요.";
+  }else{
+    note.hidden = true;
+  }
+}
+
+/* ─────────── 조작 ─────────── */
+const fromEl = document.getElementById("fromTime"), toEl = document.getElementById("toTime");
+function markWin(active){
+  document.querySelectorAll("[data-win]").forEach(x=>
+    x.setAttribute("aria-pressed", String(x.dataset.win === active)));
+}
+document.querySelectorAll("[data-win]").forEach(b=>b.addEventListener("click", ()=>{
+  state.win = b.dataset.win;
+  if(state.win === "event"){
+    state.from = EVENT_WINDOW.from; state.to = EVENT_WINDOW.to;
+    fromEl.value = minLabel(state.from); toEl.value = minLabel(state.to);
+  }
+  markWin(state.win);
+  render();
+}));
+[fromEl, toEl].forEach(el => el.addEventListener("change", ()=>{
+  const f = toMin(fromEl.value), t = toMin(toEl.value);
+  if(f == null || t == null) return;
+  state.from = Math.min(f,t); state.to = Math.max(f,t);
+  fromEl.value = minLabel(state.from); toEl.value = minLabel(state.to);
+  state.win = (state.from === EVENT_WINDOW.from && state.to === EVENT_WINDOW.to) ? "event" : "custom";
+  markWin(state.win);
+  render();
+}));
+document.querySelectorAll("[data-aff]").forEach(b=>b.addEventListener("click", ()=>{
+  state.aff = b.dataset.aff;
+  document.querySelectorAll("[data-aff]").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+  render();
+}));
+document.getElementById("search").addEventListener("input", e=>{
+  state.q = e.target.value; renderRoster(filteredReg());
+});
+document.getElementById("applyPaste").addEventListener("click", ()=>{
+  const reg = document.getElementById("pasteReg").value;
+  const sat = document.getElementById("pasteSat").value;
+  if(reg.trim()){ state.reg = parseReg(reg); state.stamp.reg = Date.now(); }
+  if(sat.trim()){ state.sat = parseSat(sat); state.stamp.sat = Date.now(); }
+  state.err.reg = state.err.sat = null;
+  state.mode = "붙여넣기";
+  render();
+});
+
+/* ─────────── 구글 시트 실시간 연동 ─────────── */
+let mcpRef = null;
+function readContent(result){
+  const p = result && result.payload;
+  if(p && typeof p === "object" && typeof p.fileContent === "string") return p.fileContent;
+  if(typeof p === "string") return p;
+  const block = result && result.content && result.content.find(c=>c.type === "text");
+  return block ? block.text : "";
+}
+function wire(mcp, which){
+  return mcp.watchTool(SERVER, TOOL, {fileId: SHEETS[which]}, ev=>{
+    if(ev.type === "error"){
+      // 일시 오류면 마지막 데이터를 유지하고, 권한 거부면 안내를 띄운다.
+      state.err[which] = ev.error && ev.error.message ? ev.error.message : "알 수 없는 오류";
+      if(!state.reg.length && !state.sat.length) state.mode = "오류";
+      renderStatus();
+      return;
+    }
+    const text = readContent(ev.result);
+    if(!text) return;
+    if(which === "reg") state.reg = parseReg(text);
+    else state.sat = parseSat(text);
+    state.err[which] = null;
+    state.stamp[which] = (ev.result.cache && ev.result.cache.storedAt) || Date.now();
+    if(state.mode !== "붙여넣기") state.mode = "실시간";
+    render();
+  }, {refetchInterval: POLL_MS});
+}
+document.getElementById("refreshBtn").addEventListener("click", async ()=>{
+  if(mcpRef){ await mcpRef.invalidate(SERVER, TOOL); return; }
+  if(typeof gvizPull === "function") gvizPull();
+});
+/* ── 커넥터가 없는 환경(내려받은 파일 등): 공개 시트를 직접 조회 ──
+   시트가 "링크가 있는 모든 사용자 — 뷰어"로 공유돼 있어야 동작한다. */
+let gvizSeq = 0;
+function gvizFetch(which){
+  return new Promise((resolve, reject)=>{
+    const cb = "__sotong_gviz_" + (++gvizSeq);
+    const tag = document.createElement("script");
+    const timer = setTimeout(()=>{ done(); reject(new Error("시트 응답이 없습니다")); }, 15000);
+    function done(){ clearTimeout(timer); try{ delete window[cb]; }catch(e){ window[cb] = undefined; } tag.remove(); }
+    window[cb] = res => { done(); resolve(res); };
+    tag.onerror = () => { done(); reject(new Error("시트를 열 수 없습니다")); };
+    tag.src = "https://docs.google.com/spreadsheets/d/" + SHEETS[which] +
+      "/gviz/tq?headers=1&tqx=out:json;responseHandler:" + cb;
+    document.head.appendChild(tag);
+  });
+}
+function gvizRows(res){
+  const t = res && res.table;
+  if(!t || !t.cols) return [];
+  const head = t.cols.map(c => String(c.label || c.id || "").trim());
+  const body = (t.rows || []).map(r => (r.c || []).map(c =>
+    c == null ? "" : String(c.f != null ? c.f : (c.v == null ? "" : c.v))));
+  return [head, ...body];
+}
+async function gvizPull(){
+  for(const which of ["reg", "sat"]){
+    try{
+      const rows = gvizRows(await gvizFetch(which));
+      if(rows.length < 2) throw new Error("데이터가 비어 있습니다");
+      if(which === "reg") state.reg = parseReg(rows); else state.sat = parseSat(rows);
+      state.err[which] = null;
+      state.stamp[which] = Date.now();
+      if(state.mode !== "붙여넣기") state.mode = "실시간";
+    }catch(err){
+      state.err[which] = err.message + " — 시트 공유를 '링크가 있는 모든 사용자'로 바꿔 주세요";
+      if(!state.reg.length && !state.sat.length) state.mode = "오류";
+    }
+  }
+  render();
+}
+
+(async ()=>{
+  const mcp = window.claude && window.claude.use ? await window.claude.use("mcp") : null;
+  if(mcp){
+    mcpRef = mcp;
+    wire(mcp, "reg");
+    wire(mcp, "sat");
+    return;
+  }
+  gvizPull();
+  setInterval(gvizPull, POLL_MS);
+})();
+
+render();
+</script>
+
+</body>
+</html>
